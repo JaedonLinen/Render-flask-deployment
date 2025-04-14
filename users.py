@@ -32,6 +32,9 @@ def login():
     username = data.get("username")
     password = data.get("password")
 
+    if not user:
+        return jsonify({"error": "Invalid credentials"}), 401
+
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
     
