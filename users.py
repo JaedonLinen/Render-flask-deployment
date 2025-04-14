@@ -32,13 +32,15 @@ def login():
     username = data.get("username")
     password = data.get("password")
 
-    if not user:
-        return jsonify({"error": "Invalid credentials"}), 401
-
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
     
     user = users.query.filter_by(username=username).first()
+
+    if not user:
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    
     new_event = event_log(user_id=user.id, table_name="null", column_name="all", old_value="Logged out", new_value="Logged in", action="login")
 
     if user and user.check_password(password): 
