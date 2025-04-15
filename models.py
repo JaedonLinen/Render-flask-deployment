@@ -9,7 +9,7 @@ class users(db.Model):
     username =  db.Column(db.String(50), unique=True, nullable=False)
     email =  db.Column(db.String(100), unique=False, nullable=False)
     password_hash = db.Column(db.String(255), unique=True, nullable=False)
-    role =  db.Column(db.String(7), unique=False, nullable=False)
+    role =  db.Column(db.String(11), unique=False, nullable=False)
     date_of_birth =  db.Column(db.Date, unique=False, nullable=False)
     created_at =  db.Column(db.DateTime, default=datetime.now)
     expiration_date =  db.Column(db.DateTime, default=lambda: datetime.now() + timedelta(days=365))
@@ -226,7 +226,7 @@ class event_log(db.Model):
     column_name = db.Column(db.String(50), nullable=True)  # Name of the changed column
     old_value = db.Column(db.Text, nullable=True)  # Previous value before change
     new_value = db.Column(db.Text, nullable=True)  # New value after change
-    action = db.Column(db.String(10), nullable=False)  # Type of action ('INSERT', 'UPDATE', 'DELETE')
+    action = db.Column(db.String(250), nullable=False)  # Type of action ('INSERT', 'UPDATE', 'DELETE')
     comment = db.Column(db.Text, nullable=True)  # Optional comment (e.g., reason for change)
 
     def to_json(self):
