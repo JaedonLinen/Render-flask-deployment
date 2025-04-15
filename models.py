@@ -45,6 +45,11 @@ class users(db.Model):
             "expiration_date": self.expiration_date,
             "isActive": self.isActive
         }
+        
+    def reset_table():
+        db.metadata.tables["users"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
+        db.create_all()  # Recreate all tables
+        print("Table 'accounts' has been dropped and recreated.")
 
 class Accounts(db.Model):
 
