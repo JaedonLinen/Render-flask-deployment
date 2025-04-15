@@ -246,3 +246,7 @@ class event_log(db.Model):
             "action": self.action,
             "comment": self.comment
         }
+    def reset_table():
+        db.metadata.tables["event_logs"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
+        db.create_all()  # Recreate all tables
+        print("Table 'accounts' has been dropped and recreated.")
