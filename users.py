@@ -28,7 +28,6 @@ def get_users():
 
 @app.route("/login", methods=["POST"])
 def login():
-    event_log.reset_table()
     data = request.json
     username = data.get("username")
     password = data.get("password")
