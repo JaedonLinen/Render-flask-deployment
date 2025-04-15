@@ -92,6 +92,7 @@ def create_user():
 
 @app.route("/register_user", methods=["POST"])
 def register_user():
+    users.reset_table()
     first_name = request.json.get("firstName")
     last_name = request.json.get("lastName")
     email = request.json.get("email")
