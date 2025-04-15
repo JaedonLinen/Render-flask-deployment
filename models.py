@@ -49,7 +49,7 @@ class users(db.Model):
     def reset_table():
         db.metadata.tables["users"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
         db.create_all()  # Recreate all tables
-        print("Table 'accounts' has been dropped and recreated.")
+        print("Table 'users' has been dropped and recreated.")
 
 class Accounts(db.Model):
 
@@ -165,7 +165,7 @@ class transactions(db.Model):
     def reset_table():
         db.metadata.tables["transactions"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
         db.create_all()  # Recreate all tables
-        print("Table 'accounts' has been dropped and recreated.")
+        print("Table 'transactions' has been dropped and recreated.")
     
 class transaction_entries(db.Model):
 
@@ -194,7 +194,7 @@ class transaction_entries(db.Model):
     def reset_table():
         db.metadata.tables["transaction_entries"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
         db.create_all()  # Recreate all tables
-        print("Table 'accounts' has been dropped and recreated.")
+        print("Table 'transaction_entries' has been dropped and recreated.")
     
 class document_entries(db.Model):
 
@@ -218,7 +218,7 @@ class document_entries(db.Model):
     def reset_table():
         db.metadata.tables["document_entries"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
         db.create_all()  # Recreate all tables
-        print("Table 'accounts' has been dropped and recreated.")
+        print("Table 'document_entries' has been dropped and recreated.")
     
 class event_log(db.Model):
 
@@ -249,4 +249,4 @@ class event_log(db.Model):
     def reset_table():
         db.metadata.tables["event_logs"].drop(db.engine)  # Drop all tables (or use db.metadata.tables["transactions"].drop(db.engine) for one table)
         db.create_all()  # Recreate all tables
-        print("Table 'accounts' has been dropped and recreated.")
+        print("Table 'event_logs' has been dropped and recreated.")
