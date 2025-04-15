@@ -233,7 +233,7 @@ def create_account():
         return (jsonify({"message": "Subcategory"}), 400)
     
     if not initial_balance:
-        return (jsonify({"message": "Initial Balance"}), 400)
+        initial_balance = 0
     
     if not account_owner:
         return (jsonify({"message": "Account Owner"}), 400)
